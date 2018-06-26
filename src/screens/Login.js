@@ -44,11 +44,10 @@ class Login extends Component {
               customStyle={{ marginBottom: 30 }}
             />
           </ScrollView>
-          <View style={styles.nextButton}>
-            <NextArrowButton
-              handleNextButton={this.handleNextButton}
-            />
-          </View>
+        </View>
+
+        <View style={styles.nextButton}>
+          <NextArrowButton handleNextButton={this.handleNextButton} />
         </View>
       </KeyboardAvoidingView>
     );
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
   nextButton: {
     alignItems: "flex-end",
     right: 20,
-    bottom: 0
+    bottom: 20
   }
 });
 
