@@ -37,7 +37,7 @@ class RoundedButton extends Component {
   }
 }
 
-RoundedButton.PropTypes = {
+RoundedButton.propTypes = {
   text: PropTypes.string.isRequired,
   textColor: PropTypes.string,
   background: PropTypes.string,
@@ -51,7 +51,9 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 40,
     borderWidth: 1,
-    borderColor: colors.white
+    borderColor: colors.white,
+    marginBottom: 15,
+    alignItems: "center"
   },
   buttonTextWrapper: {
     flexDirection: "row",
