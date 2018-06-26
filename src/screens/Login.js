@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import colors from "../styles/colors";
+import InputField from "../components/form/InputField";
 
 class Login extends Component {
   render() {
@@ -18,6 +19,21 @@ class Login extends Component {
         <View style={styles.scrollWrapper}>
           <ScrollView style={styles.scroll}>
             <Text style={styles.loginHeader}>Log In</Text>
+
+            <InputField
+              labelText="EMAIL ADDRESS"
+              labelTextSize={14}
+              labelColor={colors.white}
+              textColor={colors.white}
+              borderBottomColor={colors.white}
+            />
+            <InputField
+              labelText="PASSWORD"
+              labelTextSize={14}
+              labelColor={colors.white}
+              textColor={colors.white}
+              borderBottomColor={colors.white}
+            />
           </ScrollView>
         </View>
       </KeyboardAvoidingView>
