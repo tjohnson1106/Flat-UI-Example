@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 import colors from "../styles/colors";
 import RoundedButton from "../components/buttons/RoundedButton";
@@ -24,6 +25,13 @@ class LoggedOut extends Component {
             text="Continue With Facebook"
             color={colors.green01}
             background={colors.white}
+            icon={
+              <FontAwesome
+                name="facebook"
+                size={20}
+                style={styles.facebookButtonIcon}
+              />
+            }
           />
         </View>
       </View>
@@ -54,6 +62,12 @@ const styles = StyleSheet.create({
     height: 50,
     marginTop: 50,
     marginBottom: 40
+  },
+  facebookButtonIcon: {
+    color: colors.green01,
+    position: "relative",
+    left: 20,
+    zIndex: 8
   }
 });
 
