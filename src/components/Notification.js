@@ -42,7 +42,8 @@ class Notification extends Component {
       type,
       firstLine,
       secondLine,
-      showNotification
+      showNotification,
+      handleCloseNotification
     } = this.props;
 
     showNotification

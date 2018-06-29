@@ -18,9 +18,15 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formValid: false
+      formValid: false,
+      validEmail: false,
+      emailAddress: "",
+      validPassword: false
     };
-    this.handleCloseNotification = this.handleCloseNotification(this);
+    this.handleCloseNotification = this.handleCloseNotification.bind(
+      this
+    );
+    this.handleEmailChange = this.handleEmailChange.bind(this);
   }
 
   handleNextButton() {
@@ -29,14 +35,36 @@ class Login extends Component {
 
   handleCloseNotification() {
     this.setState({
-      formValid: false
+      formValid: true
     });
+  }
+
+  handleEmailChange(email) {
+    const emailCheckRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.setState({
+      emailAddress: email
+    });
+
+    if (!this.state.validEmail) {
+      if (emailCheckRegex.test(email)) {
+        this.setState({
+          validEmail: true
+        });
+      } else {
+        if (!emailCheckRegex.test(email)) {
+          this.setState({
+            validEmail: false
+          });
+        }
+      }
+    }
   }
 
   render() {
     const { formValid } = this.state;
     const showNotification = formValid ? false : true;
     const background = formValid ? colors.green01 : colors.darkOrange;
+    const notificationMarginTop = showNotification ? 10 : 0;
     return (
       <KeyboardAvoidingView
         style={[{ backgroundColor: background }, styles.root]}
@@ -54,6 +82,7 @@ class Login extends Component {
               borderBottomColor={colors.white}
               inputType="email"
               customStyle={{ marginBottom: 30 }}
+              onChangeText={this.handleEmailChange}
             />
             <InputField
               labelText="PASSWORD"
@@ -71,7 +100,12 @@ class Login extends Component {
               handleNextButton={this.handleNextButton}
             />
           </View>
-          <View style={showNotification ? { marginTop: 10 } : {}}>
+          <View
+            style={[
+              styles.notificationWrapper,
+              { marginTop: notificationMarginTop }
+            ]}
+          >
             <Notification
               showNotification={true}
               handleCloseNotification={this.handleCloseNotification}
@@ -116,6 +150,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     right: 20,
     bottom: 20
+  },
+  notificationWrapper: {
+    position: "absolute",
+    bottom: 0,
+    zIndex: 2
   }
 });
 
