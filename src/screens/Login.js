@@ -8,6 +8,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView
 } from "react-native";
+import PropTypes from "prop-types";
 
 import colors from "../styles/colors";
 import InputField from "../components/form/InputField";
@@ -20,7 +21,7 @@ class Login extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.root}>
+      <KeyboardAvoidingView style={styles.root} behavior="padding">
         <View style={styles.scrollWrapper}>
           <ScrollView style={styles.scroll}>
             <Text style={styles.loginHeader}>Log In</Text>
@@ -44,15 +45,22 @@ class Login extends Component {
               customStyle={{ marginBottom: 30 }}
             />
           </ScrollView>
-        </View>
 
-        <View style={styles.nextButton}>
-          <NextArrowButton handleNextButton={this.handleNextButton} />
+          <View style={styles.nextButton}>
+            <NextArrowButton
+              handleNextButton={this.handleNextButton}
+            />
+          </View>
         </View>
       </KeyboardAvoidingView>
     );
   }
 }
+
+NextArrowButton.propTypes = {
+  disabled: PropTypes.bool,
+  handleNextButton: PropTypes.func
+};
 
 const styles = StyleSheet.create({
   root: {
