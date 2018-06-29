@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { FontAwesome } from "@expo/vector-icons";
 import {
   View,
@@ -13,15 +12,36 @@ import PropTypes from "prop-types";
 import colors from "../styles/colors";
 import InputField from "../components/form/InputField";
 import NextArrowButton from "../components/buttons/NextArrowButton";
+import Notification from "../components/Notification";
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formValid: false
+    };
+    this.handleCloseNotification = this.handleCloseNotification(this);
+  }
+
   handleNextButton() {
     alert("handle next button pressed");
   }
 
+  handleCloseNotification() {
+    this.setState({
+      formValid: false
+    });
+  }
+
   render() {
+    const { formValid } = this.state;
+    const showNotification = formValid ? false : true;
+    const background = formValid ? colors.green01 : colors.darkOrange;
     return (
-      <KeyboardAvoidingView style={styles.root} behavior="padding">
+      <KeyboardAvoidingView
+        style={[{ backgroundColor: background }, styles.root]}
+        behavior="padding"
+      >
         <View style={styles.scrollWrapper}>
           <ScrollView style={styles.scroll}>
             <Text style={styles.loginHeader}>Log In</Text>
@@ -51,6 +71,15 @@ class Login extends Component {
               handleNextButton={this.handleNextButton}
             />
           </View>
+          <View style={showNotification ? { marginTop: 10 } : {}}>
+            <Notification
+              showNotification={true}
+              handleCloseNotification={this.handleCloseNotification}
+              type="Error"
+              firstLine="Those credentials are incorrect"
+              secondLine="Please try again"
+            />
+          </View>
         </View>
       </KeyboardAvoidingView>
     );
@@ -65,8 +94,7 @@ NextArrowButton.propTypes = {
 const styles = StyleSheet.create({
   root: {
     display: "flex",
-    flex: 1,
-    backgroundColor: colors.green01
+    flex: 1
   },
   scrollWrapper: {
     marginTop: 70,
