@@ -18,7 +18,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formValid: false,
+      formValid: true,
       validEmail: false,
       emailAddress: "",
       validPassword: false
@@ -27,10 +27,27 @@ class Login extends Component {
       this
     );
     this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleNextButton = this.handleNextButton.bind(this);
+    this.toggleNextButtonState = this.toggleNextButtonState.bind(
+      this
+    );
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
   handleNextButton() {
-    alert("handle next button pressed");
+    if (
+      this.state.emailAddress === "hello@hello.com" &&
+      this.state.validPassword
+    ) {
+      alert("success");
+      this.setState({
+        formValid: true
+      });
+    } else {
+      this.setState({
+        formValid: false
+      });
+    }
   }
 
   handleCloseNotification() {
@@ -58,6 +75,28 @@ class Login extends Component {
         }
       }
     }
+  }
+
+  handlePasswordChange(password) {
+    if (!this.state.validPassword) {
+      if (password.length > 4) {
+        this.setState({
+          validPassword: true
+        });
+      }
+    } else if (password <= 4) {
+      this.setState({
+        validPassword: false
+      });
+    }
+  }
+
+  toggleNextButtonState() {
+    const { validEmail, validPassword } = this.state;
+    if (validEmail && validPassword) {
+      return false;
+    }
+    return true;
   }
 
   render() {
@@ -92,12 +131,14 @@ class Login extends Component {
               borderBottomColor={colors.white}
               inputType="password"
               customStyle={{ marginBottom: 30 }}
+              onChangeText={this.handlePasswordChange}
             />
           </ScrollView>
 
           <View style={styles.nextButton}>
             <NextArrowButton
               handleNextButton={this.handleNextButton}
+              disabled={this.toggleNextButtonState()}
             />
           </View>
           <View
@@ -154,7 +195,8 @@ const styles = StyleSheet.create({
   notificationWrapper: {
     position: "absolute",
     bottom: 0,
-    zIndex: 2
+    zIndex: 1
+    // zIndex: 999
   }
 });
 

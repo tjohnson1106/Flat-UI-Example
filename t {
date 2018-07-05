@@ -1,0 +1,66 @@
+[33mcommit 742e8710eafe14ab4e88d1e5a173641e8c4f92bf[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Fri Jun 29 19:29:00 2018 -0400
+
+    added email regex validation functions
+
+[33mcommit 15117c67296d31281634f07f5b8736854d2a3c0d[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Fri Jun 29 18:44:54 2018 -0400
+
+    created conditional for background color error message change
+
+[33mcommit 2fdcea40d6ef0c6fbea37c28411c84f3b34e2823[m
+Merge: b3250fd 1020bfb
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Thu Jun 28 20:40:55 2018 -0400
+
+    fixed android underline error
+
+[33mcommit b3250fd3eb195998ad7fff6f6aceef6206071653[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Tue Jun 26 15:09:30 2018 -0400
+
+    repositioned next arrow button
+
+[33mcommit 59c61f2f9e0523d949bc4d12941a40990cada555[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Tue Jun 26 14:59:03 2018 -0400
+
+    created  handle next button function
+
+[33mcommit 1020bfb7e0686eb1d7af660089657ff5eed8bd67[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Tue Jun 26 12:55:36 2018 -0400
+
+    created email and password fields and attributes in login component
+
+[33mcommit 11e85909fee7430289acdbff86962c926025dcf4[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Mon Jun 25 21:46:57 2018 -0400
+
+    created input field scaffolding
+
+[33mcommit bb00e3bdfb61903f60276b061f8e2b0fb9358ed1[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Mon Jun 25 20:58:48 2018 -0400
+
+    added bottom  view  of login screen
+
+[33mcommit 5f5c13c206ac95e524912636596e3dff42d05099[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Mon Jun 25 20:20:14 2018 -0400
+
+    created general layout styles
+
+[33mcommit 784500904f2f2f3a467a0945c4b6b2ca5dc4931c[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Mon Jun 25 19:48:07 2018 -0400
+
+    created login with facebook button
+
+[33mcommit e092790501c8bc4201f1d1ad620b063d77af8dc9[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Thomas Johnson <tjohnson1106@gmail.com>
+Date:   Mon Jun 25 18:59:29 2018 -0400
+
+    first commit
